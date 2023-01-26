@@ -1,36 +1,36 @@
 ﻿namespace FlexibleListOO
 {
-    internal class List<T>
+    internal class IntList
     {
-        private T[] _values;
+        private int[] _numbers;
         private int _count;
-        public List(int startCapacity = 4)
+        public IntList(int startCapacity = 4)
         {
-            _values = new T[startCapacity];
+            _numbers = new int[startCapacity];
         }
 
-        public void Add(T value)
+        public void Add(int number)
         {
             var index = _count;
-            if (index >= _values.Length)
+            if (index >= _numbers.Length)
             {
                 Resize();
             }
-            _values[index] = value;
+            _numbers[index] = number;
             _count++;
         }
 
         private void Resize()
         {
-            var newNumbers = new T[_values.Length * 2];
-            Array.Copy(_values, newNumbers, _values.Length);
-            _values = newNumbers;
+            var newNumbers = new int[_numbers.Length * 2];
+            Array.Copy(_numbers, newNumbers, _numbers.Length);
+            _numbers = newNumbers;
         }
 
         public void Show()
         {
             Console.WriteLine($"Count={_count}");
-            foreach (var n in _values)
+            foreach (var n in _numbers)
             {
                 Console.Write(n + " ");
             }

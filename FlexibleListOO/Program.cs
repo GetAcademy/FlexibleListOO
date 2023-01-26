@@ -1,22 +1,40 @@
 ﻿/*
 
-    pause til 13:00
-
  - lite fleksible arrayer i C#
  - => objektorientering
- - List<>
  - generics
+ - List<>
+
+Pause til 13:28
  */
 
 using FlexibleListOO;
 
-var list = new List();
+var numbers = new FlexibleListOO.List<int>();
+//Console.WriteLine(numbers[0]);
+//while (true)
+//{
+//    var numberStr = Console.ReadLine();
+//    var number = Convert.ToInt32(numberStr);
+//    numbers.Add(number);
+//    numbers.Show();
+//}
+
+//var strings = new FlexibleListOO.List<string>();
+//while (true)
+//{
+//    var text = Console.ReadLine();
+//    strings.Add(text);
+//    strings.Show();
+//}
+
+var strings = new System.Collections.Generic.List<string>();
+Console.WriteLine(strings[0]);
 while (true)
 {
-    var numberStr = Console.ReadLine();
-    var number = Convert.ToInt32(numberStr);
-    list.Add(number);
-    list.Show();
+    var text = Console.ReadLine();
+    strings.Add(text);
+    //strings.Show();
 }
 
 //var numbers = new int[4];
