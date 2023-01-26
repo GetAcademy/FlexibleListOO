@@ -5,7 +5,6 @@
  - generics
  - List<>
 
-Pause til 13:28
  */
 
 using FlexibleListOO;

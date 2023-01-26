@@ -1,9 +1,20 @@
 ﻿namespace FlexibleListOO
 {
-    internal class List<T>
+    public class List<T>
     {
         private T[] _values;
-        private int _count;
+        public int Count { get; private set; }
+
+        public T[] Elements
+        {
+            get
+            {
+                var elements = new T[Count];
+                Array.Copy(_values, elements, Count);
+                return elements;
+            }
+        }
+
         public List(int startCapacity = 4)
         {
             _values = new T[startCapacity];
@@ -11,13 +22,13 @@
 
         public void Add(T value)
         {
-            var index = _count;
+            var index = Count;
             if (index >= _values.Length)
             {
                 Resize();
             }
             _values[index] = value;
-            _count++;
+            Count++;
         }
 
         private void Resize()
@@ -29,12 +40,28 @@
 
         public void Show()
         {
-            Console.WriteLine($"Count={_count}");
+            Console.WriteLine($"Count={Count}");
             foreach (var n in _values)
             {
                 Console.Write(n + " ");
             }
             Console.WriteLine();
+        }
+
+        public string AsString()
+        {
+            var text = "";
+            for (var index = 0; index < Count; index++)
+            {
+                var value = _values[index];
+                if (index > 0)
+                {
+                    text += ",";
+                }
+                text += value;
+            }
+
+            return text;
         }
     }
 }
